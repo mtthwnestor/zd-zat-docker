@@ -1,6 +1,8 @@
 # zd-zat-docker
 
-Zendesk Apps Tools allow you to perform actions locally, such as previewing a Help Center Theme locally.
+Zendesk Apps Tools allow you to perform actions locally, such as previewing a Help Center Theme locally. This repository is for our own Dockerfile that we can build to create a Docker image that has ZAT and dependencies all installed and setup.
+
+You will need to have Docker installed and your theme already downloaded.
 
 ## Build
 
