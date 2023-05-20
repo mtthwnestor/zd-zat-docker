@@ -6,14 +6,14 @@ You will need to have Docker installed and your theme already downloaded.
 
 ## Build
 
-Build with the following command: 
+Build the image with the following command: 
 
 ```bash
 docker build -t zat -f Dockerfile.zat .
 ```
 ## Use
 
-Following along with [Zendesk's instructions](https://support.zendesk.com/hc/en-us/articles/4408822095642), use this command to start the preview process:
+Following along with [Zendesk's instructions](https://support.zendesk.com/hc/en-us/articles/4408822095642), use this command to create a temporary Docker container using the image, and start the preview process:
 
 ```bash
 docker run --rm -it -v $PWD:/app -p 4567:4567 zat zat theme preview
