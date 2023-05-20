@@ -1,0 +1,20 @@
+# Build with: docker build -t zat -f Dockerfile.zat .
+# Use the image to run the Zendesk Apps Tools to preview your Help Center Theme locally:
+# https://support.zendesk.com/hc/en-us/articles/4408822095642
+# Example: docker run --rm -it -v $PWD:/app -p 4567:4567 zat zat theme preview
+FROM ruby:2.6.9-alpine3.15
+
+# Add required system packages.
+RUN apk add --no-cache build-base tzdata nodejs yarn sqlite-dev postgresql-dev mysql-dev git nano npm
+
+# Add user and configure directory.
+RUN adduser -D zat
+USER zat
+WORKDIR /app
+
+# Install gems.
+ENV GEM_HOME=/home/zat/gems
+ENV PATH="/home/zat/gems/bin:$PATH"
+RUN gem install rake nokogiri:1.13.10 zendesk_apps_tools
+
+CMD ["/bin/sh"]
